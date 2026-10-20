@@ -3,56 +3,235 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Binny's Guest House</title>
+    <title>Binny's Guest House - Digital Business Card</title>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
-            text-align: center;
-            padding: 50px 20px;
+        :root {
+            --bg-color: #0b2e24; /* Deep Brand Green */
+            --card-bg: #103f31;
+            --text-main: #ffffff;
+            --text-sub: #a8d5c8;
+            --accent-gold: #d4af37; /* Brand Gold */
+            --btn-bg: #165241;
+            --btn-hover: #1e6e58;
+        }
+
+        * {
+            box-sizing: border-box;
             margin: 0;
+            padding: 0;
         }
-        .container {
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 25px 15px;
+        }
+
+        .business-card {
+            background-color: var(--card-bg);
+            width: 100%;
             max-width: 400px;
-            margin: 0 auto;
+            border-radius: 24px;
+            padding: 35px 25px;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
+            text-align: center;
+            border: 1px solid rgba(212, 175, 55, 0.3);
         }
+
+        .logo-container {
+    width: 130px;
+    height: 130px;
+    margin: 0 auto 20px auto;
+    border-radius: 50%;
+    overflow: hidden;
+    
+    /* 1. REMOVE BORDER & SHADOW */
+    border: none; 
+    box-shadow: none;
+    
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-container img {
+    /* 2. ZOOM IN THE IMAGE TO FILL THE CIRCLE */
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Zooms in and completely fills the circle container */
+    transform: scale(1.75); /* Adjust this scale number (e.g. 1.10 to 1.30) to zoom in further or out */
+    display: block;
+    background-color: #0d3b2e; /* Matches brand background */
+}
+    
+{
+    /* Perfect Center Flexbox Alignment */
+    display: flex;
+    align-items: center;     /* Vertical centering */
+    justify-content: center; /* Horizontal centering */
+}
+
+.logo-container img {
+    max-width: 90%;
+    max-height: 90%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: auto;            /* Additional safety alignment */
+}
+        
+
         h1 {
-            margin-bottom: 30px;
             font-size: 24px;
+            font-weight: 700;
+            color: var(--text-main);
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+            text-transform: uppercase;
         }
-        .link-btn {
-            display: block;
-            background-color: #ffffff;
-            color: #2c3e50;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 8px;
+
+        .tagline {
+            color: var(--accent-gold);
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+        }
+
+        .info-section {
+            background-color: rgba(11, 46, 36, 0.7);
+            padding: 16px;
+            border-radius: 14px;
+            margin-bottom: 25px;
+            text-align: left;
+            font-size: 14px;
+            border-left: 4px solid var(--accent-gold);
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            color: var(--text-sub);
+        }
+
+        .info-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-item i {
+            color: var(--accent-gold);
+            width: 25px;
+            font-size: 16px;
+            text-align: center;
+            margin-right: 10px;
+        }
+
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .card-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 15px 20px;
+            border-radius: 12px;
+            background-color: var(--btn-bg);
+            color: var(--text-main);
             text-decoration: none;
-            font-weight: bold;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.2s, background-color 0.2s;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.25s ease;
+            border: 1px solid rgba(212, 175, 55, 0.2);
         }
-        .link-btn:hover {
-            background-color: #2c3e50;
-            color: #ffffff;
+
+        .card-btn i {
+            font-size: 18px;
+        }
+
+        .card-btn:hover {
+            background-color: var(--btn-hover);
             transform: translateY(-2px);
+            border-color: var(--accent-gold);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #d4af37, #b38f28);
+            color: #0b2e24;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #e5c158, #d4af37);
+            color: #0b2e24;
+        }
+
+        .footer {
+            margin-top: 25px;
+            font-size: 12px;
+            color: var(--text-sub);
+            opacity: 0.8;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
+    <div class="business-card">
+        <!-- Logo Image -->
+        <div class="logo-container">
+            <img src="logo.jpg">
+        </div>
+
+        <!-- Name & Title -->
         <h1>Binny's Guest House</h1>
-        
-        <!-- WhatsApp Link -->
-        <a class="link-btn" href="https://wa.me/message/WXYL762EHXFGI1" target="_blank">Chat on WhatsApp</a>
-        
-        <!-- Location Link -->
-        <a class="link-btn" href="https://maps.apple/p/iSGASsp8dJg8Xs" target="_blank">Get Directions (Apple Maps)</a>
-        
-        <!-- Email Link -->
-        <a class="link-btn" href="mailto:Binnyguesthousenw@gmail.com">Send an Email</a>
+        <p class="tagline">Accommodation & Hospitality</p>
+
+        <!-- Quick Info Details -->
+        <div class="info-section">
+            <div class="info-item">
+                <i class="fa-solid fa-clock"></i>
+                <span>Check-in / Inquiries Open 24/7</span>
+            </div>
+            <div class="info-item">
+                <i class="fa-solid fa-envelope"></i>
+                <span>Binnyguesthousenw@gmail.com</span>
+            </div>
+        </div>
+
+        <!-- Action Links -->
+        <div class="btn-container">
+            <!-- WhatsApp -->
+            <a class="card-btn btn-primary" href="https://wa.me/message/WXYL762EHXFGI1" target="_blank">
+                <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+            </a>
+
+            <!-- Apple Maps Directions -->
+            <a class="card-btn" href="https://maps.apple/p/iSGASsp8dJg8Xs" target="_blank">
+                <i class="fa-solid fa-location-dot"></i> Get Directions (Apple Maps)
+            </a>
+
+            <!-- Direct Email -->
+            <a class="card-btn" href="mailto:Binnyguesthousenw@gmail.com">
+                <i class="fa-solid fa-envelope"></i> Email Us Direct
+            </a>
+        </div>
+
+        <!-- Footer -->
+        <p class="footer">&copy; Binny's Guest House. All rights reserved.</p>
     </div>
 
 </body>
